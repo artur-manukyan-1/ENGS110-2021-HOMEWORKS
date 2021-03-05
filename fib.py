@@ -12,13 +12,23 @@ def CalcFibNum(UserNum):
         print(Sum)
         return Sum
     else:
-            print("Enter a valid number")
-            return 1
+        print("Enter a valid number")
+        return 1
 
 
-    
-def main():
-    InputNumber = int(input("Please enter a number: "))
-    CalcFibNum(InputNumber)
+def CheckPrimeNum(PNum):
+    for i in range(3, int(PNum ** 0.5)+ 1):
+        if PNum%i == 0:
+            print("Your number is NOT prime")
+            return False
+    print("Your number IS prime")
+    return True
+
+ main():
+    while(True):
+        InputNumber = int(input("Please enter a number: "))
+        if(CalcFibNum(InputNumber) != 1):
+            CheckPrimeNum(InputNumber)
+            break
 
 main()
