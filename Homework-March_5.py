@@ -8,7 +8,7 @@ def CalcFibNum(UserNum):
             temp = N1 + N2
             N1 = N2            
             N2 = temp
-        print("The sum of all Fibonacci numbers less than", UserNum, "is equal to:", Sum )    
+        print("The sum of all Fibonacci numbers which are less than", UserNum, "is equal to:", Sum )    
         return Sum
     else:
         print("Enter a valid number")
