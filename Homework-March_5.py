@@ -42,5 +42,4 @@ def main():
             CheckPrimeNum(InputNumber)
             ConvToBin(InputNumber)            
             break
-
 main()
