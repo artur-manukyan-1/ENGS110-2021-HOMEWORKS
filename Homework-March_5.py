@@ -1,5 +1,5 @@
 def CalcFibNum(UserNum):
-    if(UserNum <= 100 or UserNum >= 2):
+    if(UserNum <= 100 and UserNum >= 2):
         N1 = 0
         N2 = 1
         Sum = 0
@@ -8,7 +8,7 @@ def CalcFibNum(UserNum):
             temp = N1 + N2
             N1 = N2            
             N2 = temp
-        print("The sum of all Fibonacci numbers which are less than", UserNum, "is equal to:", Sum )    
+        print(f'The sum of all Fibonacci numbers which are less than {UserNum} is equal to: {Sum}')    
         return Sum
     else:
         print("Enter a valid number")
@@ -23,23 +23,31 @@ def CheckPrimeNum(PNum):
     return True
 
 def ConvToBin(DNum):
-    binary = [0,0,0,0,0,0,0,0,]
-    i = len(binary)-1
+    sttr = ""
+    s = DNum
     while(DNum > 0):
-        binary[i] = DNum%2
-        i-=1
+        i = DNum % 2
+        if i == 0:
+            sttr = '0' + sttr
+        else:
+            sttr = '1' + sttr
         DNum = int(DNum/2)
-    print("The binary representation of your number is equal to: ", end="")
-    for i in binary:
-        print(i, end="")
-    print(end="\n")
-
+    lenght = 8
+    if len(sttr) != 8:
+        lenght -= len(sttr)
+        sttr = lenght * "0" + sttr
+    print(f'The Binary representation of {s} is equal to: {sttr}')
 
 def main():
     while(True):
-        InputNumber = int(input("Please enter a number: "))
-        if(CalcFibNum(InputNumber) != 1):
-            CheckPrimeNum(InputNumber)
-            ConvToBin(InputNumber)            
-            break
+        InputNumber = input("Please enter a number: ")
+        if(InputNumber.isdigit()):
+            InputNumber = int(InputNumber)
+            if(CalcFibNum(InputNumber) != 1):
+                CheckPrimeNum(InputNumber)
+                ConvToBin(InputNumber)            
+                break
+        else:
+            print("Wrong input")
+
 main()
