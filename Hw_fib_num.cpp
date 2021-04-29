@@ -27,18 +27,18 @@ int numberFibonacci(int number)
 
 int conv_to_bin (int n)
 {
-	int i ;
-	int a = 8;
-	int bin[a];
-	for(i = 7; i > 0; i--)
-	{
-		bin[i] = n % 2;
-		n = n / 2;	
+	int i = 0;
+	printf ("the binary representation of %d is :\n", a);
+	for (int b = sizeof(int) * 8 - 1; b >= 0; b--){
+		i = a % 2;
+		a = a >> 1;
+		if (i & 1){
+			printf ("1");
+		} else {
+			printf ("0");
+		}
 	}
-	for(i = 0; i < 8; i++)
-	{
-		printf("%d", bin[i]);
-	}
+	printf("\n");
 }
 
 
